@@ -20,7 +20,8 @@ class HttpBasicAuth extends \Slim\Middleware {
         $this->options = array(
             "users" => array(),
             "path" => "/",
-            "realm" => "Protected"
+            "realm" => "Protected",
+            "responseContent" => "",
         );
 
         if ($options) {
@@ -41,7 +42,8 @@ class HttpBasicAuth extends \Slim\Middleware {
                 $this->next->call();
             } else {
                 $this->app->response->status(401);
-                $this->app->response->header("WWW-Authenticate", sprintf('Basic realm="%s"', $this->options["realm"]));;
+                $this->app->response->header("WWW-Authenticate", sprintf('Basic realm="%s"', $this->options["realm"]));
+                $this->app->response->setBody($this->options["responseContent"]);
                 return;
             }
         } else {
