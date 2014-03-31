@@ -30,6 +30,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuth(array(
 ```
 
 With optional `path` parameter can authenticate only given part of your website. You can also change the displayed `realm` using the parameter with same name.
+In `responseContent` place text for response body.
 
 ```php
 $app = new \Slim\Slim();
@@ -37,6 +38,7 @@ $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\HttpBasicAuth(array(
     "path" => "/admin",
     "realm" => "Protected",
+    "responseContent" => " 401 Unauthorized",
     "users" => array(
         "root" => "t00r",
         "user" => "passw0rd"
