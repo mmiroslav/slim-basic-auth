@@ -34,6 +34,23 @@ class HttpBasicAuth extends \Slim\Middleware {
 
         /* If path matches what is given on initialization. */
         if (false !== strpos($request->getPath(), $this->options["path"])) {
+
+            /* Ignore POST-ing feedbacks */
+            if (($request->getMethod() == "POST")) {
+              if (endsWith($request->getPath(), "/1/feedback")) {
+                $this->next->call();
+                return;
+              }
+            }
+
+            /* Ignore CORS OPTIONS */
+            if (($request->getMethod() == "OPTIONS")) {
+              if (endsWith($request->getPath(), "/1/feedback")) {
+                $this->next->call();
+                return;
+              }
+            }
+
             $user = $request->headers("PHP_AUTH_USER");
             $pass = $request->headers("PHP_AUTH_PW");
 
@@ -50,4 +67,8 @@ class HttpBasicAuth extends \Slim\Middleware {
             $this->next->call();
         }
     }
+}
+
+function endsWith($haystack, $needle) {
+    return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 }
