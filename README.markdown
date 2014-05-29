@@ -9,7 +9,7 @@ You can install the middleware using composer.
 ```javascript
 {
     "require": {
-        "tuupola/slim-basic-auth": "dev-master",
+        "mmiroslav/slim-basic-auth": "dev-master",
     }
 }
 ```
