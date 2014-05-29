@@ -1,17 +1,22 @@
-
 {
-    "name": "tuupola/slim-basic-auth",
+    "name": "mmiroslav/slim-basic-auth",
     "type": "library",
-    "description": "HTTP Basic Authentication Middleware for Slim Framework",
+    "description": "HTTP Basic Authentication Middleware for Slim Framework forked from https://github.com/tuupola/slim-basic-auth",
     "keywords": ["slim", "middleware", "auth"],
-    "homepage": "https://github.com/tuupola/slim-basic-auth",
+    "homepage": "https://github.com/mmiroslav/slim-basic-auth",
     "license": "MIT",
     "authors": [
         {
             "name": "Mika Tuupola",
             "email": "tuupola@appelsiini.net",
             "homepage": "http://www.appelsiini.net/"
+        },
+        {
+            "name": "Miroslav Milivojevic",
+            "email": "miroslav.milivojevic@infobip.com",
+            "homepage": "http://infobip.com/"
         }
+
     ],
     "require": {
         "php": ">=5.3.0",
